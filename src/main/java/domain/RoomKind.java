@@ -30,6 +30,6 @@ public enum RoomKind {
      * @return the description
      */
     public String getDescription() {
-        return description;
+        return this.description;
     }
 }

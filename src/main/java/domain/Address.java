@@ -50,6 +50,12 @@ public class Address {
      * @return the street
      */
     public String getStreet() {
+        try {
+            return street;
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         return street;
     }
     
