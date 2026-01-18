@@ -1,0 +1,22 @@
+# Build directories
+target/
+build/
+out/
+
+# IDE directories
+.idea/
+.vscode/
+*.iml
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Maven
+.m2/
+
+# Class files
+*.class
