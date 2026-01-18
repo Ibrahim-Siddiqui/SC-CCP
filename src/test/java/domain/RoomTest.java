@@ -1,11 +1,23 @@
-package domain;
+package test.java.domain;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import domain.Address;
+import domain.Guest;
+import domain.HowMany;
+import domain.Money;
+import domain.Name;
+import domain.Reservation;
+import domain.Room;
+import domain.RoomKind;
+import domain.RoomType;
+
 import static org.junit.jupiter.api.Assertions.*;
+
+
 
 /**
  * Test class for Room.
@@ -26,7 +38,6 @@ class RoomTest {
             new Address("456 Oak Ave", "City", "Country", "54321")
         );
         reservation = new Reservation(
-            java.time.LocalDate.now(),
             java.time.LocalDate.now().plusDays(1),
             java.time.LocalDate.now().plusDays(3),
             new HowMany(1)

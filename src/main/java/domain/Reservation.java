@@ -24,36 +24,29 @@ public class Reservation {
      * @param reservationDate the date when the reservation was made
      * @param startDate the check-in date
      * @param endDate the check-out date
-     * @param numberOfGuests the number of guests
+     * @param guests the number of guests
      * @throws IllegalArgumentException if any date is null, numberOfGuests is null,
      *                                  or dates are in invalid order
      */
-    public Reservation(LocalDate reservationDate, LocalDate startDate, LocalDate endDate, HowMany numberOfGuests) {
-        if (reservationDate == null) {
-            throw new IllegalArgumentException("Reservation date cannot be null");
-        }
+    public Reservation(LocalDate startDate, LocalDate endDate, HowMany guests) {
         if (startDate == null) {
             throw new IllegalArgumentException("Start date cannot be null");
         }
         if (endDate == null) {
             throw new IllegalArgumentException("End date cannot be null");
         }
-        if (numberOfGuests == null) {
+        if (guests == null) {
             throw new IllegalArgumentException("Number of guests cannot be null");
         }
         
         // Validate date order
-        if (startDate.isBefore(reservationDate)) {
-            throw new IllegalArgumentException("Start date cannot be before reservation date");
-        }
         if (endDate.isBefore(startDate) || endDate.equals(startDate)) {
             throw new IllegalArgumentException("End date must be after start date");
         }
         
-        this.reservationDate = reservationDate;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.numberOfGuests = numberOfGuests;
+        this.numberOfGuests = guests;
     }
     
     /**

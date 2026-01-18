@@ -32,7 +32,7 @@ public class Hotel {
         this.name = name;
         this.rooms = new HashMap<>();
     }
-    
+
     /**
      * Get the name of this hotel.
      * 

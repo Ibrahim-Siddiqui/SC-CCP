@@ -1,4 +1,19 @@
-package domain;
+package test.java.domain;
+
+import domain.Address;
+import domain.CreditCard;
+import domain.Guest;
+import domain.HotelChain;
+import domain.Hotel;
+import domain.HowMany;
+import domain.Identity;
+import domain.Money;
+import domain.Name;
+import domain.Reservation;
+import domain.ReserverPayer;
+import domain.Room;
+import domain.RoomKind;
+import domain.RoomType;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -6,6 +21,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+
 
 /**
  * Test class for HotelChain.
@@ -41,7 +58,6 @@ class HotelChainTest {
             new Identity("ID123", "Passport")
         );
         reservation = new Reservation(
-            java.time.LocalDate.now(),
             java.time.LocalDate.now().plusDays(1),
             java.time.LocalDate.now().plusDays(3),
             new HowMany(1)

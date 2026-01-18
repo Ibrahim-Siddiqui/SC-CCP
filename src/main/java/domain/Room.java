@@ -167,11 +167,8 @@ public class Room {
             throw new IllegalStateException("No reservation found for guest '" + guestId + "' in room " + number);
         }
         
-        // Find the guest object from the reservation
-        Reservation reservation = reservations.get(guestId);
-        // For now, we'll mark the guest as checked in
+        // Mark the guest as checked in
         this.checkedInGuestId = guestId;
-        // Note: We'll set the actual guest object during the operation
     }
     
     /**

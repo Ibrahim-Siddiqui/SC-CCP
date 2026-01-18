@@ -1,9 +1,14 @@
-package domain;
+package test.java.domain;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
+
+import domain.Hotel;
+import domain.Money;
+import domain.Name;
+import domain.Room;
+import domain.RoomKind;
+import domain.RoomType;
 
 import static org.junit.jupiter.api.Assertions.*;
 

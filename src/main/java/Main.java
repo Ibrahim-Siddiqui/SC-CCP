@@ -97,7 +97,6 @@ public class Main {
         System.out.println("Step 7: Making Reservations...");
         
         Reservation res1 = new Reservation(
-            LocalDate.now(),
             LocalDate.now().plusDays(1),
             LocalDate.now().plusDays(4),
             new HowMany(1)
@@ -107,7 +106,6 @@ public class Main {
         System.out.println("✓ Reservation made: " + res1);
         
         Reservation res2 = new Reservation(
-            LocalDate.now(),
             LocalDate.now().plusDays(2),
             LocalDate.now().plusDays(5),
             new HowMany(2)
@@ -149,7 +147,6 @@ public class Main {
         // Step 12: Make Another Reservation (for available room)
         System.out.println("Step 12: Making Reservation for Available Room...");
         Reservation res3 = new Reservation(
-            LocalDate.now(),
             LocalDate.now().plusDays(1),
             LocalDate.now().plusDays(3),
             new HowMany(1)

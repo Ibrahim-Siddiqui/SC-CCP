@@ -1,9 +1,11 @@
-package domain;
+package test.java.domain;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+
+import domain.Reservation;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -25,59 +27,45 @@ class ReservationTest {
         // Arrange
         java.time.LocalDate start = today.plusDays(1);
         java.time.LocalDate end = today.plusDays(3);
-        HowMany guests = new HowMany(2);
+        HowMany guests = new HowMany(1);
         
         // Act
-        Reservation res = new Reservation(today, start, end, guests);
+        Reservation res = new Reservation(start, end, guests);
         
         // Assert
         assertNotNull(res);
-        assertEquals(today, res.getReservationDate());
         assertEquals(start, res.getStartDate());
         assertEquals(end, res.getEndDate());
     }
     
     @Test
-    void testConstructorWithNullReservationDate() {
-        // Act & Assert
-        assertThrows(IllegalArgumentException.class, 
-            () -> new Reservation(null, today.plusDays(1), today.plusDays(3), new HowMany(1)));
-    }
-    
-    @Test
     void testConstructorWithNullStartDate() {
         assertThrows(IllegalArgumentException.class, 
-            () -> new Reservation(today, null, today.plusDays(3), new HowMany(1)));
+            () -> new Reservation(null, today.plusDays(1), new HowMany(1)));
     }
     
     @Test
     void testConstructorWithNullEndDate() {
         assertThrows(IllegalArgumentException.class, 
-            () -> new Reservation(today, today.plusDays(1), null, new HowMany(1)));
+            () -> new Reservation(today, null, new HowMany(1)));
     }
     
     @Test
     void testConstructorWithNullNumberOfGuests() {
         assertThrows(IllegalArgumentException.class, 
-            () -> new Reservation(today, today.plusDays(1), today.plusDays(3), null));
-    }
-    
-    @Test
-    void testConstructorWithStartBeforeReservationDate() {
-        assertThrows(IllegalArgumentException.class, 
-            () -> new Reservation(today, today.minusDays(1), today.plusDays(3), new HowMany(1)));
+            () -> new Reservation(today, today.plusDays(1), null));
     }
     
     @Test
     void testConstructorWithEndBeforeStart() {
         assertThrows(IllegalArgumentException.class, 
-            () -> new Reservation(today, today.plusDays(3), today.plusDays(1), new HowMany(1)));
+            () -> new Reservation(today, today.plusDays(1), new HowMany(1)));
     }
     
     @Test
     void testConstructorWithEndEqualToStart() {
         assertThrows(IllegalArgumentException.class, 
-            () -> new Reservation(today, today.plusDays(1), today.plusDays(1), new HowMany(1)));
+            () -> new Reservation(today, today.plusDays(1), new HowMany(1)));
     }
     
     // ===== Number of Nights Tests =====
@@ -86,7 +74,7 @@ class ReservationTest {
         // Arrange
         java.time.LocalDate start = today.plusDays(1);
         java.time.LocalDate end = today.plusDays(4);
-        Reservation res = new Reservation(today, start, end, new HowMany(1));
+        Reservation res = new Reservation(start, end, new HowMany(1));
         
         // Act
         int nights = res.getNumberOfNights();
@@ -100,7 +88,7 @@ class ReservationTest {
         // Arrange
         java.time.LocalDate start = today.plusDays(1);
         java.time.LocalDate end = today.plusDays(2);
-        Reservation res = new Reservation(today, start, end, new HowMany(1));
+        Reservation res = new Reservation(start, end, new HowMany(1));
         
         // Act
         int nights = res.getNumberOfNights();
